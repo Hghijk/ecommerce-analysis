@@ -1,70 +1,66 @@
-# ecommerce-analysis
-Product Sales &amp; Customer Segmentation using Python (RFM Analysis)
-# 🛍️ E-Commerce Sales & Customer Segmentation Project
+# 🛍️ E-Commerce Sales Analysis & Customer Segmentation
 
 ## 📊 Overview
-This project analyzes over 500,000 online retail transactions to uncover key product performance insights and segment customers using RFM (Recency, Frequency, Monetary) analysis. The goal is to help businesses better understand their top-performing products and most valuable customers for data-driven marketing and strategy.
+This project analyzes over 500,000 online retail transactions to uncover product performance insights and segment customers using RFM (Recency, Frequency, Monetary) analysis. The goal is to help businesses identify their most valuable customers and key revenue-driving products using Python.
 
 ---
 
-## 🗂️ Dataset
-- **Source:** [Kaggle - Online Retail Dataset](https://www.kaggle.com/datasets/carrie1/ecommerce-data)
-- **Rows:** ~500,000
-- **Period:** December 2010 to December 2011
-- **Columns:** InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
+## 📁 Dataset
+- **Source:** [Kaggle – Online Retail Data](https://www.kaggle.com/datasets/carrie1/ecommerce-data)
+- **Rows:** 500,000+
+- **Timeframe:** Dec 2010 – Dec 2011
+- **Features:** InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
 
 ---
 
 ## 🧹 Data Cleaning
-- Removed canceled orders (`InvoiceNo` starting with 'C')
-- Dropped rows with missing `CustomerID`
-- Filtered out invalid quantities and unit prices (≤ 0)
+- Removed cancelled orders (`InvoiceNo` starts with 'C')
+- Dropped missing `CustomerID` rows
+- Removed negative or zero `Quantity` and `UnitPrice`
+- Created `Revenue = Quantity × UnitPrice`
 - Converted `InvoiceDate` to datetime format
-- Created new column: `Revenue = Quantity × UnitPrice`
 
 ---
 
 ## 📈 Product Sales Analysis
-- **Total revenue** calculated from cleaned data
-- **Top 10 products** by revenue visualized using bar chart
-- **Monthly revenue trends** analyzed with line plot
-- **Revenue by country** identified key markets (UK led with ~90% share)
+- Total Revenue: **~£8.9 million**
+- Identified **Top 10 Products** by revenue
+- Analyzed **Monthly Revenue Trends**
+- Ranked **Top Countries** by revenue (UK led with ~90%)
 
 ---
 
-## 👥 Customer Segmentation (RFM Analysis)
+## 👥 Customer Segmentation (RFM)
+Calculated:
 - **Recency**: Days since last purchase
-- **Frequency**: Number of purchases
+- **Frequency**: Number of orders
 - **Monetary**: Total spending
-- Customers were scored on each metric (1–4) and grouped into segments:
-  - 🏆 **Champions**: Recent, frequent, high spenders
-  - ⚠️ **At Risk**: Haven't purchased recently, low frequency
-  - 🆕 **New Customers**: Recent but low frequency
+
+Customers were scored on each dimension (1–4 scale) and combined into an `RFM_Score`.
+
+**Segments Identified:**
+- 🏆 **Champions** (444 score): most loyal and high-spending customers
+- 🧊 **At Risk**: infrequent or inactive customers
+- ✨ **New Customers**: recent but low frequency
+- 📉 **Loyal Customers**: frequent but not high spenders
 
 ---
 
-## 🧠 Key Insights
-- A small % of products generate the majority of revenue.
-- The UK dominates as the primary market (~90%+ revenue).
-- A small segment of “Champions” accounts for significant revenue.
-- There's potential to reactivate “At-Risk” customers with personalized offers.
+## 📊 Visualizations
+- Top 10 products bar chart
+- Monthly revenue trend line plot
+- Recency, Frequency, Monetary histograms
+- Revenue by country bar chart
 
 ---
 
-## 💡 Recommendations
-- Focus loyalty campaigns on Champions.
-- Offer discounts or follow-ups to At-Risk customers.
-- Invest more in top products and drop underperforming items.
-- Consider expanding into other countries with high-potential customer bases.
+## 💡 Business Insights
+- 20% of products drive most revenue
+- UK is the core market (90% of revenue)
+- Small % of customers generate most revenue (Pareto principle)
+- RFM segmentation provides powerful marketing targeting
 
 ---
 
-## 🛠️ Tools Used
-- Python (pandas, matplotlib, seaborn)
-- Jupyter Notebook
-- Excel (optional)
-- Git & GitHub
+## 📁 Folder Structure
 
----
-
-## 📁 Project Structure
